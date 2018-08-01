@@ -1,0 +1,23 @@
+
+{
+    "hamrofoodmanduApp": {
+        "openingHour" : {
+            "home": {
+                "title": "Opening Hours",
+                "createLabel": "Create a new Opening Hour",
+                "createOrEditLabel": "Create or edit a Opening Hour"
+            },
+            "created": "A new Opening Hour is created with identifier {{ param }}",
+            "updated": "A Opening Hour is updated with identifier {{ param }}",
+            "deleted": "A Opening Hour is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Opening Hour {{ id }}?"
+            },
+            "detail": {
+                "title": "Opening Hour"
+            },
+            "day": "Day",
+            "time": "Time"
+        }
+    }
+}

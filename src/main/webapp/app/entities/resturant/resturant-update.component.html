@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-resturant-heading" jhiTranslate="hamrofoodmanduApp.resturant.home.createOrEditLabel">Create or edit a Resturant</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!resturant.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="resturant.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.resturant.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="resturant.name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.resturant.serviceCharge" for="field_serviceCharge">Service Charge</label>
+                    <input type="number" class="form-control" name="serviceCharge" id="field_serviceCharge"
+                        [(ngModel)]="resturant.serviceCharge" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.resturant.vat" for="field_vat">Vat</label>
+                    <input type="number" class="form-control" name="vat" id="field_vat"
+                        [(ngModel)]="resturant.vat" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.resturant.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="resturant.description" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.resturant.location" for="field_location">Location</label>
+                    <select class="form-control" id="field_location" name="location" [(ngModel)]="resturant.locationId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="locationOption.id" *ngFor="let locationOption of locations; trackBy: trackLocationById">{{locationOption.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="hamrofoodmanduApp.resturant.openingHour" for="field_openingHour">Opening Hour</label>
+                    <select class="form-control" id="field_openingHour" multiple name="openingHour" [(ngModel)]="resturant.openingHours">
+                        <option [ngValue]="getSelected(resturant.openingHours, openingHourOption)" *ngFor="let openingHourOption of openinghours; trackBy: trackOpeningHourById">{{openingHourOption.time}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

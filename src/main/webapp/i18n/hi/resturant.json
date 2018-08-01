@@ -1,0 +1,27 @@
+
+{
+    "hamrofoodmanduApp": {
+        "resturant" : {
+            "home": {
+                "title": "Resturants",
+                "createLabel": "नया Resturant बनाएँ",
+                "createOrEditLabel": "Resturant बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Resturant [identifier: {{ param }}] तैयार है",
+            "updated": "एक Resturant [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Resturant [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Resturant [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Resturant"
+            },
+            "name": "Name",
+            "serviceCharge": "Service Charge",
+            "vat": "Vat",
+            "description": "Description",
+            "location": "Location",
+            "openingHour": "Opening Hour"
+        }
+    }
+}

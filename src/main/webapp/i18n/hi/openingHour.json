@@ -1,0 +1,23 @@
+
+{
+    "hamrofoodmanduApp": {
+        "openingHour" : {
+            "home": {
+                "title": "OpeningHours",
+                "createLabel": "नया Opening Hour बनाएँ",
+                "createOrEditLabel": "Opening Hour बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Opening Hour [identifier: {{ param }}] तैयार है",
+            "updated": "एक Opening Hour [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Opening Hour [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Opening Hour [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Opening Hour"
+            },
+            "day": "Day",
+            "time": "Time"
+        }
+    }
+}

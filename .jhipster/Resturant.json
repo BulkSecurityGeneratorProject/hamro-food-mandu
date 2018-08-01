@@ -1,0 +1,48 @@
+{
+    "name": "Resturant",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "serviceCharge",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "vat",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "location",
+            "otherEntityName": "location",
+            "otherEntityField": "name",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "resturant"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "openingHour",
+            "otherEntityName": "openingHour",
+            "otherEntityField": "time",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20180801072323",
+    "entityTableName": "resturant",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

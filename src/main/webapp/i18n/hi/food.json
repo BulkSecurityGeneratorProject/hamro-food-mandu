@@ -1,0 +1,27 @@
+
+{
+    "hamrofoodmanduApp": {
+        "food" : {
+            "home": {
+                "title": "Foods",
+                "createLabel": "नया Food बनाएँ",
+                "createOrEditLabel": "Food बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Food [identifier: {{ param }}] तैयार है",
+            "updated": "एक Food [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Food [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Food [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Food"
+            },
+            "name": "Name",
+            "image": "Image",
+            "unitPrice": "Unit Price",
+            "description": "Description",
+            "category": "Category",
+            "resturant": "Resturant"
+        }
+    }
+}

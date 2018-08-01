@@ -1,0 +1,23 @@
+{
+    "name": "OpeningHour",
+    "fields": [
+        {
+            "fieldName": "day",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "time",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180801072325",
+    "entityTableName": "opening_hour",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

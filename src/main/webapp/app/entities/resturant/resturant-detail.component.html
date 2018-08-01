@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="resturant">
+            <h2><span jhiTranslate="hamrofoodmanduApp.resturant.detail.title">Resturant</span> {{resturant.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hamrofoodmanduApp.resturant.name">Name</span></dt>
+                <dd>
+                    <span>{{resturant.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.resturant.serviceCharge">Service Charge</span></dt>
+                <dd>
+                    <span>{{resturant.serviceCharge}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.resturant.vat">Vat</span></dt>
+                <dd>
+                    <span>{{resturant.vat}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.resturant.description">Description</span></dt>
+                <dd>
+                    <span>{{resturant.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.resturant.location">Location</span></dt>
+                <dd>
+                    <div *ngIf="resturant.locationId">
+                        <a [routerLink]="['/location', resturant.locationId, 'view']">{{resturant.locationName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.resturant.openingHour">Opening Hour</span></dt>
+                <dd>
+                    <span *ngFor="let openingHour of resturant.openingHours; let last = last">
+                        <a [routerLink]="['/opening-hour', openingHour?.id, 'view' ]">{{openingHour.time}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/resturant', resturant.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

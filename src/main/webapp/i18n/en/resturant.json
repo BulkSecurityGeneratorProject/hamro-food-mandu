@@ -1,0 +1,27 @@
+
+{
+    "hamrofoodmanduApp": {
+        "resturant" : {
+            "home": {
+                "title": "Resturants",
+                "createLabel": "Create a new Resturant",
+                "createOrEditLabel": "Create or edit a Resturant"
+            },
+            "created": "A new Resturant is created with identifier {{ param }}",
+            "updated": "A Resturant is updated with identifier {{ param }}",
+            "deleted": "A Resturant is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resturant {{ id }}?"
+            },
+            "detail": {
+                "title": "Resturant"
+            },
+            "name": "Name",
+            "serviceCharge": "Service Charge",
+            "vat": "Vat",
+            "description": "Description",
+            "location": "Location",
+            "openingHour": "Opening Hour"
+        }
+    }
+}

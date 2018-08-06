@@ -47,7 +47,7 @@ export const foodRoute: Routes = [
             food: FoodResolve
         },
         data: {
-            authorities: ['ROLE_USER'],
+            // authorities: ['ROLE_USER'],
             pageTitle: 'hamrofoodmanduApp.food.home.title'
         },
         canActivate: [UserRouteAccessService]

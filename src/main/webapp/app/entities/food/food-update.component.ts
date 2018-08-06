@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { JhiAlertService } from 'ng-jhipster';
 
@@ -10,6 +10,8 @@ import { ICategory } from 'app/shared/model/category.model';
 import { CategoryService } from 'app/entities/category';
 import { IResturant } from 'app/shared/model/resturant.model';
 import { ResturantService } from 'app/entities/resturant';
+import { ImageService } from 'app/core/file/image.service';
+import { ResponseModel } from 'app/shared/model/response.model';
 
 @Component({
     selector: 'jhi-food-update',
@@ -18,17 +20,24 @@ import { ResturantService } from 'app/entities/resturant';
 export class FoodUpdateComponent implements OnInit {
     private _food: IFood;
     isSaving: boolean;
-
+    imageFile: File;
+    fileName: string;
     categories: ICategory[];
-
+    imgUploadUrl: string = 'api/upload';
     resturants: IResturant[];
+    imgUrl: string;
+    progress = { value: 0 };
+    isVisible: boolean = false;
+    defaultImgSrc = './assets/img/default-user.png';
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private foodService: FoodService,
         private categoryService: CategoryService,
         private resturantService: ResturantService,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private http: HttpClient,
+        private _imageService: ImageService
     ) {}
 
     ngOnInit() {
@@ -87,11 +96,56 @@ export class FoodUpdateComponent implements OnInit {
     trackResturantById(index: number, item: IResturant) {
         return item.id;
     }
+
     get food() {
         return this._food;
     }
 
     set food(food: IFood) {
         this._food = food;
+    }
+
+    onSelectFile(event) {
+        if (event.target.files && event.target.files[0]) {
+            this.isVisible = true;
+            var reader = new FileReader();
+
+            reader.readAsDataURL(event.target.files[0]); // read file as data url
+            this.imageFile = event.target.files[0];
+
+            reader.onload = (event: FileReaderEvent) => {
+                // called once readAsDataURL is completed
+                this.imgUrl = event.target.result;
+            };
+            this.uploadImage();
+        } else {
+            this.resetFileUpload();
+        }
+    }
+
+    resetFileUpload() {
+        this.isVisible = false;
+        this.fileName = '';
+        this.imageFile = null;
+        this.progress.value = 0;
+        this.imgUrl = this.defaultImgSrc;
+    }
+
+    uploadImage() {
+        // this._imageService.progress$.subscribe(
+        //     (data: number) => {
+        //         this.progress.value = data;
+        //     });
+        //
+        this._imageService.uploadRequest(this.imageFile, this.imgUploadUrl).subscribe((res: HttpResponse<ResponseModel>) => {
+            if (res.body.responseStatus) {
+                this.fileName = res.body.result;
+                this.food.image = this.fileName;
+            }
+        });
+    }
+
+    getImage(imgName) {
+        return this._imageService.getImage(imgName);
     }
 }

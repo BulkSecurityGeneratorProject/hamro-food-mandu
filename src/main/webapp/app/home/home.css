@@ -22,3 +22,8 @@ Main page styles
         background-size: contain;
     }
 }
+
+#img:hover {
+    transform: scale(1.2);
+    -webkit-transition: transform 1s ease-in-out;
+}

@@ -14,6 +14,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -87,6 +88,7 @@ public class FoodResource {
      * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and the list of foods in body
      */
+//    @PreAuthorize("hasRole('ROLE_ANONYMOUS') or hasRole('ROLE_ADMIN')")
     @GetMapping("/foods")
     @Timed
     public ResponseEntity<List<FoodDTO>> getAllFoods(Pageable pageable) {

@@ -6,6 +6,7 @@ import { HamrofoodmanduSharedLibsModule, HamrofoodmanduSharedCommonModule, JhiLo
 
 @NgModule({
     imports: [HamrofoodmanduSharedLibsModule, HamrofoodmanduSharedCommonModule],
+
     declarations: [JhiLoginModalComponent, HasAnyAuthorityDirective],
     providers: [{ provide: NgbDateAdapter, useClass: NgbDateMomentAdapter }],
     entryComponents: [JhiLoginModalComponent],

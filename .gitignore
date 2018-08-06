@@ -2,14 +2,14 @@
 # Project Specific
 ######################
 /target/www/**
-/src/test/javascript/coverage/
+/src/test/**
 
 ######################
 # Node
 ######################
 /node/
 node_tmp/
-node_modules/
+node_modules
 npm-debug.log.*
 /.awcache/*
 /.cache-loader/*

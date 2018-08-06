@@ -3,11 +3,11 @@ Navbar
 ========================================================================== */
 .navbar-version {
     font-size: 10px;
-    color: #ccc;
+    color: #cc121a;
 }
 
 .jh-navbar {
-    background-color: #353d47;
+    background-color: white;
     padding: 0.2em 1em;
 }
 
@@ -82,8 +82,12 @@ Logo styles
 }
 
 .logo-img {
-    height: 100%;
-    background: url('../../../content/images/logo-jhipster.png') no-repeat center center;
+    height: 20px;
+    background: url('../../../content/images/logo.png') no-repeat center center;
     background-size: contain;
-    width: 100%;
+    width: 20px;
+}
+
+a {
+    color: black;
 }

@@ -1,55 +1,74 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
-            <h2 id="jhi-food-heading" jhiTranslate="hamrofoodmanduApp.food.home.createOrEditLabel">Create or edit a Food</h2>
+            <h2 id="jhi-food-heading" jhiTranslate="hamrofoodmanduApp.food.home.createOrEditLabel">Create or edit a
+                Food</h2>
             <div>
                 <jhi-alert-error></jhi-alert-error>
                 <div class="form-group" [hidden]="!food.id">
                     <label for="id" jhiTranslate="global.field.id">ID</label>
                     <input type="text" class="form-control" id="id" name="id"
-                        [(ngModel)]="food.id" readonly />
+                           [(ngModel)]="food.id" readonly/>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.food.name" for="field_name">Name</label>
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.food.name"
+                           for="field_name">Name</label>
                     <input type="text" class="form-control" name="name" id="field_name"
-                        [(ngModel)]="food.name" />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.food.image" for="field_image">Image</label>
-                    <input type="text" class="form-control" name="image" id="field_image"
-                        [(ngModel)]="food.image" />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.food.unitPrice" for="field_unitPrice">Unit Price</label>
-                    <input type="number" class="form-control" name="unitPrice" id="field_unitPrice"
-                        [(ngModel)]="food.unitPrice" />
-                </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.food.description" for="field_description">Description</label>
-                    <input type="text" class="form-control" name="description" id="field_description"
-                        [(ngModel)]="food.description" />
+                           [(ngModel)]="food.name"/>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.food.category" for="field_category">Category</label>
-                    <select class="form-control" id="field_category" name="category" [(ngModel)]="food.categoryId" >
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.food.unitPrice"
+                           for="field_unitPrice">Unit Price</label>
+                    <input type="number" class="form-control" name="unitPrice" id="field_unitPrice"
+                           [(ngModel)]="food.unitPrice"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.food.description"
+                           for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           [(ngModel)]="food.description"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.food.category"
+                           for="field_category">Category</label>
+                    <select class="form-control" id="field_category" name="category" [(ngModel)]="food.categoryId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="categoryOption.id" *ngFor="let categoryOption of categories; trackBy: trackCategoryById">{{categoryOption.name}}</option>
+                        <option [ngValue]="categoryOption.id"
+                                *ngFor="let categoryOption of categories; trackBy: trackCategoryById">
+                            {{categoryOption.name}}
+                        </option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.food.resturant" for="field_resturant">Resturant</label>
-                    <select class="form-control" id="field_resturant" name="resturant" [(ngModel)]="food.resturantId" >
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.food.resturant"
+                           for="field_resturant">Resturant</label>
+                    <select class="form-control" id="field_resturant" name="resturant" [(ngModel)]="food.resturantId">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="resturantOption.id" *ngFor="let resturantOption of resturants; trackBy: trackResturantById">{{resturantOption.name}}</option>
+                        <option [ngValue]="resturantOption.id"
+                                *ngFor="let resturantOption of resturants; trackBy: trackResturantById">
+                            {{resturantOption.name}}
+                        </option>
                     </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.food.image">Image</label>
+                    <!--<input type="text" class="form-control" name="image" id="field_image"-->
+                    <!--[(ngModel)]="food.image"/>-->
+                    <img [src]="imgUrl" height="150px" width="150px"> <br/>
+                    <!--<p>-->
+                        <!--<ngb-progressbar *ngIf="isVisible" type="success" [value]="progress.value"></ngb-progressbar>-->
+                    <!--</p>-->
+                    <input [disabled]="isViewOnlyMode" type='file' (change)="onSelectFile($event)">
                 </div>
             </div>
             <div>
-                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
                     <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
                 </button>
-                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving"
+                        class="btn btn-primary">
                     <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
                 </button>
             </div>

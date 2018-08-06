@@ -9,10 +9,8 @@
                 <dd>
                     <span>{{food.name}}</span>
                 </dd>
-                <dt><span jhiTranslate="hamrofoodmanduApp.food.image">Image</span></dt>
-                <dd>
-                    <span>{{food.image}}</span>
-                </dd>
+                <dt><img id="img" class="card-img-top" alt="Card image cap" [src]="getImage(food.image)" style="max-width: 30%;height: auto;"/>
+                </dt>
                 <dt><span jhiTranslate="hamrofoodmanduApp.food.unitPrice">Unit Price</span></dt>
                 <dd>
                     <span>{{food.unitPrice}}</span>

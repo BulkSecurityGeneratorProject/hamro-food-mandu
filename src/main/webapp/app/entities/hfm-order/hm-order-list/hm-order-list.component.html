@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="hFMOrders">
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <!--<div class="panel-heading">food item list</div>-->
+
+                <!-- Table -->
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <td>id</td>
+                        <td>userId</td>
+                        <td>status</td>
+                        <td>total charge(RS)</td>
+                        <td>Delivery date</td>
+                        <td>creation date</td>
+                        <!--<td>extra</td>-->
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let hfmOrder of hFMOrders">
+                        <td>{{hfmOrder.id}}</td>
+                        <td>{{hfmOrder.userId}}</td>
+                        <td>{{hfmOrder.status}}</td>
+                        <td>{{hfmOrder.totalCharge}}</td>
+                        <td>{{hfmOrder.deliveryDate}}</td>
+                        <td>{{hfmOrder.creationDate}}</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+        </div>
+    </div>
+</div>

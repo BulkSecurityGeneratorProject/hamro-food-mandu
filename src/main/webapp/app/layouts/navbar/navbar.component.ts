@@ -6,6 +6,8 @@ import { JhiLanguageService } from 'ng-jhipster';
 import { VERSION } from 'app/app.constants';
 import { JhiLanguageHelper, Principal, LoginModalService, LoginService } from 'app/core';
 import { ProfileService } from '../profiles/profile.service';
+import { ITray } from 'app/shared/model/tray.model';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 
 @Component({
     selector: 'jhi-navbar',
@@ -19,6 +21,7 @@ export class NavbarComponent implements OnInit {
     swaggerEnabled: boolean;
     modalRef: NgbModalRef;
     version: string;
+    settingsAccount: any;
 
     constructor(
         private loginService: LoginService,

@@ -12,6 +12,11 @@
                 "openingHour": "Opening Hour",
                 "category": "Category",
                 "food": "Food",
+                "hfmOrder": "HFM Order",
+                "deliveryInfo": "Delivery Info",
+                "paymentType": "Payment Type",
+                "tray": "Tray",
+                "trayFood": "Tray Food",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

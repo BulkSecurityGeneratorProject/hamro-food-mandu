@@ -1,0 +1,27 @@
+
+{
+    "hamrofoodmanduApp": {
+        "trayFood" : {
+            "home": {
+                "title": "Tray Foods",
+                "createLabel": "Create a new Tray Food",
+                "createOrEditLabel": "Create or edit a Tray Food"
+            },
+            "created": "A new Tray Food is created with identifier {{ param }}",
+            "updated": "A Tray Food is updated with identifier {{ param }}",
+            "deleted": "A Tray Food is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tray Food {{ id }}?"
+            },
+            "detail": {
+                "title": "Tray Food"
+            },
+            "quantity": "Quantity",
+            "totalCharge": "Total Charge",
+            "creationDate": "Creation Date",
+            "extra": "Extra",
+            "tray": "Tray",
+            "food": "Food"
+        }
+    }
+}

@@ -1,0 +1,32 @@
+
+{
+    "hamrofoodmanduApp": {
+        "hFMOrder" : {
+            "home": {
+                "title": "HFMOrders",
+                "createLabel": "नया HFM Order बनाएँ",
+                "createOrEditLabel": "HFM Order बनाएँ या संपादित करें"
+            },
+            "created": "एक नया HFM Order [identifier: {{ param }}] तैयार है",
+            "updated": "एक HFM Order [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "HFM Order [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "HFM Order [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "HFM Order"
+            },
+            "status": "Status",
+            "creationDate": "Creation Date",
+            "completionDate": "Completion Date",
+            "deliveryDate": "Delivery Date",
+            "totalCharge": "Total Charge",
+            "description": "Description",
+            "tray": "Tray",
+            "payment": "Payment",
+            "deliveryInfo": "Delivery Info",
+            "resturant": "Resturant",
+            "user": "User"
+        }
+    }
+}

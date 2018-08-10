@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity HFMOrder.
+    -->
+    <changeSet id="20180806062236-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tray_id"
+                                 baseTableName="hfm_order"
+                                 constraintName="fk_hfmorder_tray_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tray"/>
+
+        <addForeignKeyConstraint baseColumnNames="payment_id"
+                                 baseTableName="hfm_order"
+                                 constraintName="fk_hfmorder_payment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="payment_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="delivery_info_id"
+                                 baseTableName="hfm_order"
+                                 constraintName="fk_hfmorder_delivery_info_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="delivery_info"/>
+
+        <addForeignKeyConstraint baseColumnNames="resturant_id"
+                                 baseTableName="hfm_order"
+                                 constraintName="fk_hfmorder_resturant_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="resturant"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="hfm_order"
+                                 constraintName="fk_hfmorder_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+    </changeSet>
+</databaseChangeLog>

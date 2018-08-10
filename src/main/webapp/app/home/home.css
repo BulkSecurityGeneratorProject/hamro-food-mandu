@@ -27,3 +27,6 @@ Main page styles
     transform: scale(1.2);
     -webkit-transition: transform 1s ease-in-out;
 }
+.card-img-top {
+    height: 200px;
+}

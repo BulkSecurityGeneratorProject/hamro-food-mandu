@@ -1,0 +1,32 @@
+
+{
+    "hamrofoodmanduApp": {
+        "hFMOrder" : {
+            "home": {
+                "title": "HFM Orders",
+                "createLabel": "Create a new HFM Order",
+                "createOrEditLabel": "Create or edit a HFM Order"
+            },
+            "created": "A new HFM Order is created with identifier {{ param }}",
+            "updated": "A HFM Order is updated with identifier {{ param }}",
+            "deleted": "A HFM Order is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete HFM Order {{ id }}?"
+            },
+            "detail": {
+                "title": "HFM Order"
+            },
+            "status": "Status",
+            "creationDate": "Creation Date",
+            "completionDate": "Completion Date",
+            "deliveryDate": "Delivery Date",
+            "totalCharge": "Total Charge",
+            "description": "Description",
+            "tray": "Tray",
+            "payment": "Payment",
+            "deliveryInfo": "Delivery Info",
+            "resturant": "Resturant",
+            "user": "User"
+        }
+    }
+}

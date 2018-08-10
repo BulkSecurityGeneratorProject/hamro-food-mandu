@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="deliveryInfo">
+            <h2><span jhiTranslate="hamrofoodmanduApp.deliveryInfo.detail.title">Delivery Info</span> {{deliveryInfo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hamrofoodmanduApp.deliveryInfo.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{deliveryInfo.firstName}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.deliveryInfo.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{deliveryInfo.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.deliveryInfo.phoneNo">Phone No</span></dt>
+                <dd>
+                    <span>{{deliveryInfo.phoneNo}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.deliveryInfo.address">Address</span></dt>
+                <dd>
+                    <span>{{deliveryInfo.address}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.deliveryInfo.description">Description</span></dt>
+                <dd>
+                    <span>{{deliveryInfo.description}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/delivery-info', deliveryInfo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

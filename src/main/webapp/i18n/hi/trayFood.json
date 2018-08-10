@@ -1,0 +1,27 @@
+
+{
+    "hamrofoodmanduApp": {
+        "trayFood" : {
+            "home": {
+                "title": "TrayFoods",
+                "createLabel": "नया Tray Food बनाएँ",
+                "createOrEditLabel": "Tray Food बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Tray Food [identifier: {{ param }}] तैयार है",
+            "updated": "एक Tray Food [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Tray Food [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Tray Food [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Tray Food"
+            },
+            "quantity": "Quantity",
+            "totalCharge": "Total Charge",
+            "creationDate": "Creation Date",
+            "extra": "Extra",
+            "tray": "Tray",
+            "food": "Food"
+        }
+    }
+}

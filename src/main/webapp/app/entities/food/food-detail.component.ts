@@ -10,6 +10,7 @@ import { ImageService } from 'app/core/file/image.service';
 })
 export class FoodDetailComponent implements OnInit {
     food: IFood;
+    id: any;
 
     constructor(private activatedRoute: ActivatedRoute, private _imageService: ImageService) {}
 

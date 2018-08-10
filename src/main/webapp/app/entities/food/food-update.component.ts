@@ -23,11 +23,11 @@ export class FoodUpdateComponent implements OnInit {
     imageFile: File;
     fileName: string;
     categories: ICategory[];
-    imgUploadUrl: string = 'api/upload';
+    imgUploadUrl = 'api/upload';
     resturants: IResturant[];
     imgUrl: string;
     progress = { value: 0 };
-    isVisible: boolean = false;
+    isVisible = false;
     defaultImgSrc = './assets/img/default-user.png';
 
     constructor(
@@ -108,7 +108,7 @@ export class FoodUpdateComponent implements OnInit {
     onSelectFile(event) {
         if (event.target.files && event.target.files[0]) {
             this.isVisible = true;
-            var reader = new FileReader();
+            let reader = new FileReader();
 
             reader.readAsDataURL(event.target.files[0]); // read file as data url
             this.imageFile = event.target.files[0];

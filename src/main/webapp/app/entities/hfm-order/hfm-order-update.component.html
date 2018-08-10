@@ -1,0 +1,104 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-hfm-order-heading" jhiTranslate="hamrofoodmanduApp.hFMOrder.home.createOrEditLabel">Create or edit a HFM Order</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!hFMOrder.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="hFMOrder.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.hFMOrder.status" for="field_status">Status</label>
+                    <input type="text" class="form-control" name="status" id="field_status"
+                        [(ngModel)]="hFMOrder.status" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.hFMOrder.creationDate" for="field_creationDate">Creation Date</label>
+                    <div class="input-group">
+                        <input id="field_creationDate" type="text" class="form-control" name="creationDate" ngbDatepicker  #creationDateDp="ngbDatepicker" [(ngModel)]="hFMOrder.creationDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="creationDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.hFMOrder.completionDate" for="field_completionDate">Completion Date</label>
+                    <div class="input-group">
+                        <input id="field_completionDate" type="text" class="form-control" name="completionDate" ngbDatepicker  #completionDateDp="ngbDatepicker" [(ngModel)]="hFMOrder.completionDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="completionDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.hFMOrder.deliveryDate" for="field_deliveryDate">Delivery Date</label>
+                    <div class="input-group">
+                        <input id="field_deliveryDate" type="text" class="form-control" name="deliveryDate" ngbDatepicker  #deliveryDateDp="ngbDatepicker" [(ngModel)]="hFMOrder.deliveryDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="deliveryDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.hFMOrder.totalCharge" for="field_totalCharge">Total Charge</label>
+                    <input type="number" class="form-control" name="totalCharge" id="field_totalCharge"
+                        [(ngModel)]="hFMOrder.totalCharge" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.hFMOrder.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="hFMOrder.description" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.hFMOrder.tray" for="field_tray">Tray</label>
+                    <select class="form-control" id="field_tray" name="tray" [(ngModel)]="hFMOrder.trayId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="trayOption.id" *ngFor="let trayOption of trays; trackBy: trackTrayById">{{trayOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.hFMOrder.payment" for="field_payment">Payment</label>
+                    <select class="form-control" id="field_payment" name="payment" [(ngModel)]="hFMOrder.paymentId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="paymentTypeOption.id" *ngFor="let paymentTypeOption of paymenttypes; trackBy: trackPaymentTypeById">{{paymentTypeOption.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.hFMOrder.deliveryInfo" for="field_deliveryInfo">Delivery Info</label>
+                    <select class="form-control" id="field_deliveryInfo" name="deliveryInfo" [(ngModel)]="hFMOrder.deliveryInfoId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="deliveryInfoOption.id" *ngFor="let deliveryInfoOption of deliveryinfos; trackBy: trackDeliveryInfoById">{{deliveryInfoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.hFMOrder.resturant" for="field_resturant">Resturant</label>
+                    <select class="form-control" id="field_resturant" name="resturant" [(ngModel)]="hFMOrder.resturantId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="resturantOption.id" *ngFor="let resturantOption of resturants; trackBy: trackResturantById">{{resturantOption.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.hFMOrder.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" [(ngModel)]="hFMOrder.userId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

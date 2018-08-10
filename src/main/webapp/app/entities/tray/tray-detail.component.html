@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tray">
+            <h2><span jhiTranslate="hamrofoodmanduApp.tray.detail.title">Tray</span> {{tray.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hamrofoodmanduApp.tray.status">Status</span></dt>
+                <dd>
+                    <span>{{tray.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.tray.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{tray.creationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.tray.extra">Extra</span></dt>
+                <dd>
+                    <span>{{tray.extra}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.tray.user">User</span></dt>
+                <dd>
+                    {{tray.userId}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tray', tray.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

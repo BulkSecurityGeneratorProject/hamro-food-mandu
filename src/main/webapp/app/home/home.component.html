@@ -3,7 +3,8 @@
     <div class="col-md-12 " style=" color: White; text-align:center">
 
         <h2 style="font-size:35px;font-weight:400">Hungry.....enter anything in your mind</h2>
-        <input #searchBox type="text" (keyup)="searchFoodlist(searchBox.value.toUpperCase())" placeholder="Search food here..."
+        <input #searchBox type="text" (keyup)="searchFoodlist(searchBox.value.toUpperCase())"
+               placeholder="Search food here..."
                size="30" class="form-control"
                style="width: 50%;display:inline-block;">
         <!--<a class="button" value="search" class="btn btn-light" (click)="searchFoodlist(searchBox.value)"><i class="fa fa-search"></i></a>-->
@@ -49,23 +50,25 @@
     <!--</p>-->
     <!--</div>-->
 </div>
-
-<div class="row">
-    <div class="col-md-12" style="text-align:center">
-        <h1>Our top Menus:</h1>
+<div style="margin:10px 25px 10px">
+    <div class="row" *ngIf="categoryList">
+        <div class="col-md-12" style="text-align:center">
+            <h1>Our top Menus:</h1>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-1" style="text-align:center" *ngFor="let category of categoryList ">
-        <a class="button" value="search" class="btn btn-light" (click)="searchFoodlist(category.name)">
-            {{category.name}}</a>
+    <div class="row">
+        <div class="col-md-1" style="text-align:center" *ngFor="let category of categoryList ">
+            <a class="button" value="search" class="btn btn-light"
+               (click)="searchFoodlist(category.name.toUpperCase())">
+                {{category.name.toUpperCase()}}</a>
+        </div>
     </div>
 </div>
 
 <div style="margin:10px 25px 10px" *ngIf="searchFoodList">
     <div class="row" style="padding:20px">
         <div class="col-md-12" style="text-align:center">
-            <h1>Restaurants and stores: </h1>
+            <h1>Available cuisines </h1>
         </div>
     </div>
     <div class="row">
@@ -80,7 +83,7 @@
                     <h6 class=" card-subtitle mb-2>Rs:{{food.unitPrice}}</h6>
                     <a href="#" class="card-link btn btn-success" [routerLink]="['/food', food.id, 'view' ]">View
                         details</a>
-                    <a href="#" class="card-link btn btn-primary">Order</a>
+                    <a href="#" class="card-link btn btn-primary" [routerLink]="['/tray-food/',food.id,'add']">Order</a>
 
                 </div>
                 <div class="card-footer">

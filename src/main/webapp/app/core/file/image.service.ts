@@ -17,7 +17,7 @@ export class ImageService extends FileService {
     }
 
     uploadRequest(uploadFile: File, url): Observable<EntityResponseType> {
-        let formData: FormData = new FormData();
+        const formData: FormData = new FormData();
         formData.append('uploadFile', uploadFile);
         return this.http.post<ResponseModel>(SERVER_API_URL + url, formData, { observe: 'response' });
     }

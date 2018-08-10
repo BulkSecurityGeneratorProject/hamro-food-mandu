@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-delivery-info-heading" jhiTranslate="hamrofoodmanduApp.deliveryInfo.home.createOrEditLabel">Create or edit a Delivery Info</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!deliveryInfo.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="deliveryInfo.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.deliveryInfo.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                        [(ngModel)]="deliveryInfo.firstName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.deliveryInfo.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                        [(ngModel)]="deliveryInfo.lastName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.deliveryInfo.phoneNo" for="field_phoneNo">Phone No</label>
+                    <input type="text" class="form-control" name="phoneNo" id="field_phoneNo"
+                        [(ngModel)]="deliveryInfo.phoneNo" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.deliveryInfo.address" for="field_address">Address</label>
+                    <input type="text" class="form-control" name="address" id="field_address"
+                        [(ngModel)]="deliveryInfo.address" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.deliveryInfo.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="deliveryInfo.description" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hamrofoodmanduApp.hFMOrder.payment" for="field_payment">Payment</label>
+                    <select class="form-control" id="field_payment" name="payment" [(ngModel)]="_hFMOrder.paymentId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="paymentTypeOption.id" *ngFor="let paymentTypeOption of paymenttypes; trackBy: trackPaymentTypeById">{{paymentTypeOption.name}}</option>
+                    </select>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button  *jhiHasAnyAuthority="'ROLE_USER'" type="submit">Create order</span>
+                </button>
+                <!--<button *jhiHasAnyAuthority="'ROLE_USER'" type="submit" id="NEXT-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-success" [routerLink]="['/hfm-order/new']">Next-->
+                <!--</button>-->
+            </div>
+        </form>
+    </div>
+</div>

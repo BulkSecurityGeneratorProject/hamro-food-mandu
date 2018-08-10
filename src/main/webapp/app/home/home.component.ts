@@ -59,7 +59,9 @@ export class HomeComponent implements OnInit {
 
     private loadAllFood() {
         this.foodService
-            .query({})
+            .query({
+                size: 500
+            })
             .subscribe((res: HttpResponse<IFood[]>) => (this.foodList = res.body), (res: HttpErrorResponse) => console.log(res.error));
     }
 
@@ -85,7 +87,11 @@ export class HomeComponent implements OnInit {
             this.searchFoodList = this.foodList.filter(
                 food => food.name.toUpperCase().includes(foodName) || food.categoryName.toUpperCase().includes(foodName)
             );
-            if (this.searchFoodList.length == 0) this.searchFoodList = null;
-        } else this.searchFoodList = null;
+            if (this.searchFoodList.length == 0) {
+                this.searchFoodList = null;
+            }
+        } else {
+            this.searchFoodList = null;
+        }
     }
 }

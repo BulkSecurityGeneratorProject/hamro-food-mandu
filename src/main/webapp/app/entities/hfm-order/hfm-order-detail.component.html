@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="hFMOrder">
+            <h2><span jhiTranslate="hamrofoodmanduApp.hFMOrder.detail.title">HFM Order</span> {{hFMOrder.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hamrofoodmanduApp.hFMOrder.status">Status</span></dt>
+                <dd>
+                    <span>{{hFMOrder.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.hFMOrder.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{hFMOrder.creationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.hFMOrder.completionDate">Completion Date</span></dt>
+                <dd>
+                    <span>{{hFMOrder.completionDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.hFMOrder.deliveryDate">Delivery Date</span></dt>
+                <dd>
+                    <span>{{hFMOrder.deliveryDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.hFMOrder.totalCharge">Total Charge</span></dt>
+                <dd>
+                    <span>{{hFMOrder.totalCharge}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.hFMOrder.description">Description</span></dt>
+                <dd>
+                    <span>{{hFMOrder.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.hFMOrder.tray">Tray</span></dt>
+                <dd>
+                    <div *ngIf="hFMOrder.trayId">
+                        <a [routerLink]="['/tray', hFMOrder.trayId, 'view']">{{hFMOrder.trayId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.hFMOrder.payment">Payment</span></dt>
+                <dd>
+                    <div *ngIf="hFMOrder.paymentId">
+                        <a [routerLink]="['/payment-type', hFMOrder.paymentId, 'view']">{{hFMOrder.paymentName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.hFMOrder.deliveryInfo">Delivery Info</span></dt>
+                <dd>
+                    <div *ngIf="hFMOrder.deliveryInfoId">
+                        <a [routerLink]="['/delivery-info', hFMOrder.deliveryInfoId, 'view']">{{hFMOrder.deliveryInfoId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.hFMOrder.resturant">Resturant</span></dt>
+                <dd>
+                    <div *ngIf="hFMOrder.resturantId">
+                        <a [routerLink]="['/resturant', hFMOrder.resturantId, 'view']">{{hFMOrder.resturantName}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.hFMOrder.user">User</span></dt>
+                <dd>
+                    {{hFMOrder.userId}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/hfm-order', hFMOrder.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

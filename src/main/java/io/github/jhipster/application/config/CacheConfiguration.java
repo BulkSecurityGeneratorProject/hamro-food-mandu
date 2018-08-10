@@ -44,6 +44,12 @@ public class CacheConfiguration {
             cm.createCache(io.github.jhipster.application.domain.OpeningHour.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.Category.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.Food.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.HFMOrder.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.HFMOrder.class.getName() + ".foods", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.DeliveryInfo.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.PaymentType.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Tray.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.TrayFood.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

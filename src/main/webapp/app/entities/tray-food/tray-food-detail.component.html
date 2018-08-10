@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="trayFood">
+            <h2><span jhiTranslate="hamrofoodmanduApp.trayFood.detail.title">Tray Food</span> {{trayFood.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hamrofoodmanduApp.trayFood.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{trayFood.quantity}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.trayFood.totalCharge">Total Charge</span></dt>
+                <dd>
+                    <span>{{trayFood.totalCharge}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.trayFood.creationDate">Creation Date</span></dt>
+                <dd>
+                    <span>{{trayFood.creationDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.trayFood.extra">Extra</span></dt>
+                <dd>
+                    <span>{{trayFood.extra}}</span>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.trayFood.tray">Tray</span></dt>
+                <dd>
+                    <div *ngIf="trayFood.trayId">
+                        <a [routerLink]="['/tray', trayFood.trayId, 'view']">{{trayFood.trayId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hamrofoodmanduApp.trayFood.food">Food</span></dt>
+                <dd>
+                    <div *ngIf="trayFood.foodId">
+                        <a [routerLink]="['/food', trayFood.foodId, 'view']">{{trayFood.foodName}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tray-food', trayFood.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

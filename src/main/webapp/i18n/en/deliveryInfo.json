@@ -1,0 +1,26 @@
+
+{
+    "hamrofoodmanduApp": {
+        "deliveryInfo" : {
+            "home": {
+                "title": "Delivery Infos",
+                "createLabel": "Create a new Delivery Info",
+                "createOrEditLabel": "Create or edit a Delivery Info"
+            },
+            "created": "A new Delivery Info is created with identifier {{ param }}",
+            "updated": "A Delivery Info is updated with identifier {{ param }}",
+            "deleted": "A Delivery Info is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Delivery Info {{ id }}?"
+            },
+            "detail": {
+                "title": "Delivery Info"
+            },
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "phoneNo": "Phone No",
+            "address": "Address",
+            "description": "Description"
+        }
+    }
+}

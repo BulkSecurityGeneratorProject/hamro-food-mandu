@@ -1,0 +1,26 @@
+
+{
+    "hamrofoodmanduApp": {
+        "deliveryInfo" : {
+            "home": {
+                "title": "DeliveryInfos",
+                "createLabel": "नया Delivery Info बनाएँ",
+                "createOrEditLabel": "Delivery Info बनाएँ या संपादित करें"
+            },
+            "created": "एक नया Delivery Info [identifier: {{ param }}] तैयार है",
+            "updated": "एक Delivery Info [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Delivery Info [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Delivery Info [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Delivery Info"
+            },
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "phoneNo": "Phone No",
+            "address": "Address",
+            "description": "Description"
+        }
+    }
+}
